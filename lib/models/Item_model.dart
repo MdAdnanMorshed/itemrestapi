@@ -1,5 +1,5 @@
 import 'dart:convert';
-
+import 'package:get/state_manager.dart';
 List<Item> itemFromJson(String str) => List<Item>.from(json.decode(str).map((x) => Item.fromJson(x)));
 
 String itemToJson(List<Item> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
@@ -46,7 +46,7 @@ class Item {
   String productApiUrl;
   String apiFeaturedImage;
   List<ProductColor> productColors;
-
+  var isFavorite = false.obs;
   factory Item.fromJson(Map<String, dynamic> json) => Item(
     id: json["id"],
     brand: brandValues.map[json["brand"]],
