@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-List<Welcome> welcomeFromJson(String str) => List<Welcome>.from(json.decode(str).map((x) => Welcome.fromJson(x)));
+List<Item> itemFromJson(String str) => List<Item>.from(json.decode(str).map((x) => Item.fromJson(x)));
 
-String welcomeToJson(List<Welcome> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String itemToJson(List<Item> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Welcome {
-  Welcome({
+class Item {
+  Item({
     this.id,
     this.brand,
     this.name,
@@ -47,7 +47,7 @@ class Welcome {
   String apiFeaturedImage;
   List<ProductColor> productColors;
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory Item.fromJson(Map<String, dynamic> json) => Item(
     id: json["id"],
     brand: brandValues.map[json["brand"]],
     name: json["name"],
